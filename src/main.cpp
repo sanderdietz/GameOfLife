@@ -5,10 +5,7 @@
 #include <functional>
 #include <string>
 
-typedef std::function<void(Settings&, const std::string&)> ArgHandle;
-#include <iostream>
-
-const std::unordered_map<std::string, ArgHandle> Args
+const std::unordered_map<std::string, std::function<void(Settings&, const std::string&)>> args
 {
     {
         "--rows", [](Settings& settings, const std::string& arg)
@@ -38,7 +35,7 @@ Settings parseSettings(int argc, char* argv[])
     for (int i = 1; i < argc; i++)
     {
         std::string option = argv[i];
-        if (auto j {Args.find(option)}; j != Args.end())
+        if (auto j {args.find(option)}; j != args.end())
         {
             if(++i < argc)
             {
@@ -53,10 +50,6 @@ int main(int argc, char* argv[])
 {
     Settings settings = parseSettings(argc, argv);
     GameOfLife gameOfLife(settings);
-    std::cout << settings.rows << std::endl;
-    std::cout << settings.resolutionWidth << std::endl;
-    std::cout << settings.resolutionHeight << std::endl;
-    std::cout << settings.speed << std::endl;
     gameOfLife.loop();
     return 0;
 }
