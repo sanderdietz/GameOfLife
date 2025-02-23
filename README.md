@@ -1,6 +1,6 @@
-# Game Of Life
+# Game of Life
 
-This C++ program displays [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) with a randomly generated first generation. The user can specify the number of rows of the grid, the resolution of the window and speed of the animation.
+This C++ program displays [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) with a randomly generated first generation. The user can specify the number of rows of the grid, the resolution of the window and speed of the animation. At the moment, this program can only run on Linux.
 
 ## Installation
 
